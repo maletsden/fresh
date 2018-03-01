@@ -1,0 +1,358 @@
+$purple: #352541;
+$pink: #d195c2;
+$small_text: 20px;
+$central-circles: 300px;
+$duration: 600ms;
+@mixin main-pos {
+  width: 100%;
+  z-index: 0;
+}
+
+div {
+  position: relative;
+}
+
+#main {
+  background: url("../images/how_to_cooperate.jpg");
+  background-size: cover;
+  @include main-pos;
+  color: #352541;
+  font-family: Arial;
+
+  > div:first-child {
+    // opacity
+    z-index: -100;
+    top: 0;
+    position: absolute;
+    background-color: white;
+    opacity: 0.6;
+    size: 100%;
+  }
+
+  > div:nth-child(2) {
+    padding-top: 60px;
+    text-align: center;
+    font-weight: lighter;
+    font-size: $small_text * 0.87;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #header {
+    text-align: center;
+    padding: 20px 0 80px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  #flower_block {
+    size: $central-circles;
+    margin: 50px auto;
+
+    position: relative;
+
+    #central_circles {
+      size: 100%;
+      position: absolute;
+      background: transparent;
+
+      border: 3px solid #a978b5 {
+        radius: 50%;
+      }
+      > div:not(:last-child) {
+        background-image: url("../images/half_circle.png");
+        size: $central-circles*0.35 $central-circles*0.35*64/114;
+        background-size: cover;
+        position: absolute;
+      }
+
+      > div:nth-child(1) {
+        left: 32.5%;
+        top: 12.85%;
+      }
+
+      > div:nth-child(2) {
+        transform: rotate(90deg);
+        right: 5%;
+        top: 40%;
+      }
+
+      > div:nth-child(3) {
+        left: 32.5%;
+        transform: rotateX(180deg);
+        bottom: 12.85%;
+      }
+
+      > div:nth-child(4) {
+        left: 5%;
+        top: 40.5%;
+        transform: rotate(-90deg);
+      }
+
+      > div:last-child {
+        position: absolute;
+        size: 35%;
+        left: 32.5%;
+        top: 32.5%;
+        background: $pink;
+        border-radius: 50%;
+      }
+    }
+    @mixin circle {
+      size: $central-circles;
+      margin: auto;
+      position: absolute;
+
+      > div:first-child {
+        background: #893071;
+        size: 45%;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      > img {
+        position: absolute;
+      }
+      > div:last-of-type {
+        background: $pink;
+        z-index: 5;
+        size: 20%;
+        position: absolute;
+        border: 2px solid #3f3f27 {
+          radius: 50%;
+        }
+        box-sizing: border-box;
+        padding: 2% 0% 0% 6%;
+        font-size: 240%;
+        font-weight: bold;
+      }
+      > p {
+        font-size: 130%;
+        position: absolute;
+        font-weight: 600;
+        line-height: 1;
+      }
+    }
+
+    #first_block {
+      @include circle;
+
+      > div:first-child {
+        right: -18%;
+        top: -15%;
+      }
+      > img {
+        content: url("../images/flower.png");
+        size: 50%;
+        right: -28%;
+        top: -27%;
+      }
+
+      > div:last-of-type {
+        right: 19%;
+        top: -17%;
+      }
+      > p {
+        width:60%;
+        right: -70%;
+        top: 19%;
+      }
+    }
+
+    #second_block {
+      @include circle;
+
+      > div:first-child {
+        right: -18%;
+        bottom: -15%;
+      }
+      > img:first-of-type {
+        content: url("../images/consultator_person.png");
+        size: 36% 41%;
+        right: -14.1%;
+        bottom: -15.1%;
+      }
+      > img:last-of-type {
+        content: url("../images/consultator_cloud.png");
+        size: 20%;
+        right: -26.1%;
+        bottom: 14.9%;
+      }
+
+      > div:last-of-type {
+        right: -4%;
+        bottom: 25%;
+      }
+      > p {
+        width:70%;
+        right: -90%;
+        bottom: -35%;
+      }
+    }
+
+    #third_block {
+      @include circle;
+
+      > div:first-child {
+        left: -18%;
+        bottom: -15%;
+      }
+      > img {
+        content: url("../images/keyboard.png");
+        size: 50%;
+        left: -18.3%;
+        bottom: -18.4%;
+      }
+      > div:last-of-type {
+        left: 12%;
+        bottom: 15%;
+      }
+      > p {
+        width:60%;
+        left: -75%;
+        bottom: -10%;
+      }
+    }
+
+    #forth_block {
+      @include circle;
+
+      > div:first-child {
+        left: -18%;
+        top: -15%;
+      }
+      > img {
+        content: url("../images/car.png");
+        width: 40%;
+        left: -23%;
+        top: -6%;
+      }
+      > div:last-of-type {
+        left: -17%;
+        top: 18%;
+      }
+      > p {
+        width:70%;
+        left: -95%;
+        top: 10%;
+      }
+    }
+  }
+  #padding {
+    padding: $central-circles*0.2 0;
+  }
+
+
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .flower_block_show {
+    visibility: visible;
+    #central_circles,  #central_circles > div {
+      animation-name: show;
+      animation-iteration-count: 1;
+      position: absolute;
+    }
+    #central_circles {
+      animation-duration: $duration;
+
+      >div:not(:last-child) {
+        animation-duration: $duration *2;
+      }
+
+      > div:last-child {
+        animation-duration: $duration;
+      }
+    }
+    @mixin circle_show {
+      > * {
+        opacity: 0;
+        position: absolute;
+        animation-name: show;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-duration: $duration *2;
+      }
+    }
+
+    #first_block {
+      @include circle_show;
+
+      > img {
+        animation-delay: $duration - 300;
+      }
+
+      > div:last-of-type, > p {
+        animation-delay: $duration - 150;
+      }
+    }
+
+    #second_block {
+      @include circle_show;
+
+      > div:first-child {
+        animation-delay: $duration * 0.5;
+      }
+      > img:first-of-type {
+        animation-delay: $duration * 0.5 + 100;
+      }
+      > img:last-of-type {
+        animation-delay: $duration * 1.5;
+      }
+
+      > div:last-of-type, > p {
+        animation-delay: $duration * 0.5 + 200;
+      }
+
+    }
+
+    #third_block {
+      @include circle_show;
+
+      > div:first-child {
+        animation-delay: $duration * 1;
+      }
+      > img {
+        animation-delay: $duration * 1 + 100;
+      }
+      > div:last-of-type, > p {
+        animation-delay: $duration * 1 + 200;
+      }
+
+    }
+
+    #forth_block {
+      @keyframes goCar {
+        0% {
+          left: -33%;
+        }
+        100% {
+          left: -23%;
+        }
+      }
+      @include circle_show;
+
+      > div:first-child {
+        animation-delay: $duration * 1.5;
+      }
+      > img {
+        animation-name: show, goCar;
+        animation-delay: $duration * 1.5 + 100;
+      }
+      > div:last-of-type, > p {
+        animation-delay: $duration * 1.5 + 200;
+      }
+
+    }
+  }
+  #padding {
+    padding: $central-circles*0.2 0;
+  }
+
+}

@@ -1,0 +1,45 @@
+$purple: #4a283f;
+$pink: #a46c92;
+$brightPurple: #593f66;
+
+#main {
+  background: $pink;
+
+  > div:first-child {
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+    font-size: 200%;
+  }
+
+  > div:last-child {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    padding: 50px 0;
+    justify-content: space-between;
+
+    > div {
+      font: {
+        size: 130%;
+        family: Arial;
+      }
+      border-radius: 10px;
+      box-sizing: border-box;
+      padding: 1.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    > div:first-child {
+      width: 30%;
+      background: $purple;
+    }
+
+    > div:last-child {
+      border: 3px solid white;
+      white-space:nowrap;
+    }
+  }
+}

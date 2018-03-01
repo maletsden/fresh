@@ -1,0 +1,95 @@
+$purple: #352541;
+$pink: #d195c2;
+$brightPurple: #593f66;
+#main {
+  overflow: hidden;
+  background: $pink;
+  color: $brightPurple;
+  position: relative;
+  padding-bottom: 80px;
+  > div:nth-child(1) {
+    text-align: center;
+    padding: 50px 0 20px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  > div:nth-child(2) {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 17.5px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .left, .right {
+    width: 70%;
+    padding-top: 30px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    color: #6c6c6c;
+  }
+  .left {
+    justify-content: space-between;
+    > div:first-child {
+      size: 150px;
+      border-radius: 50%;
+      background: white;
+    }
+    > div:last-child {
+      width: 80%;
+      > div:first-child {
+        font-family: Arial Narrow;
+        font-style: italic;
+      }
+      > div:last-child {
+        padding-top: 10px;
+        font-family: Arial;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .right {
+    justify-content: flex-end;
+    > div:first-child {
+      width: 60%;
+      margin-right: 5%;
+      text-align: right;
+
+      > div:first-child {
+        font-family: Arial;
+        font-style: italic;
+      }
+      > div:last-child {
+        padding-top: 10px;
+        font-family: Arial;
+        font-weight: bold;
+      }
+    }
+    > div:last-child {
+      size: 150px;
+      border-radius: 50%;
+      background: white;
+    }
+
+  }
+
+  > span {
+    > img {
+      content: url('../images/flowers.png');
+      position: absolute;
+      top: 1.5%;
+      size: 30% 97%;
+    }
+
+    &:first-of-type > img {
+      left: -15%;
+    }
+    &:last-of-type > img {
+      transform: rotate(-180deg);
+      right: -15%;
+    }
+  }
+
+}

@@ -1,0 +1,54 @@
+$purple: #352541;
+$brightPurple: #593f66;
+
+#main {
+  color: $brightPurple;
+  font-family: Arial;
+  position: relative;
+  padding-bottom: 50px;
+  > div:nth-child(1) {
+    text-align: center;
+    padding: 70px 0 20px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  > div:nth-child(2) {
+    text-align: center;
+    padding-bottom: 40px;
+    font-weight: lighter;
+    font-size: 17.5px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  > div:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    > :first-child {
+      width: 70%;
+      > p {
+        line-height: 1.5;
+        color: #6c6c6c;
+        padding-bottom: 30px;
+
+        &:nth-child(3) {
+          padding-bottom: 0;
+        }
+        > span {
+          color: $brightPurple;
+          font-weight: bold;
+        }
+      }
+    }
+
+    > img {
+      content: url('../images/wreath.png');
+      size: 25%;
+    }
+
+  }
+}

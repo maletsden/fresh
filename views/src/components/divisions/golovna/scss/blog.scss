@@ -1,0 +1,47 @@
+$purple: #352541;
+$brightPurple: #4a283f;
+
+#main {
+  color: $brightPurple;
+  font-family: Arial;
+  position: relative;
+  padding-bottom: 50px;
+  > div:nth-child(1) {
+    text-align: center;
+    padding: 70px 0 20px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  > div:nth-child(2) {
+    text-align: center;
+    padding-bottom: 70px;
+    font-weight: lighter;
+    font-size: 17.5px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  > div:last-child {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    > div {
+      width: 20%;
+      > div {
+        size: 100% 100px;
+        background: $brightPurple;
+      }
+      > p {
+        text-align: center;
+        &:first-of-type {
+          font: {
+            size: 130%;
+            weight: bold;
+          }
+
+        }
+      }
+    }
+  }
+}

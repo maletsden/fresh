@@ -1,0 +1,111 @@
+$purple: #352541;
+$pink: #d195c2;
+$small_text: 20px;
+
+@mixin main-pos {
+  width: 100%;
+  z-index: 0;
+}
+
+@mixin input_styling {
+  border-radius: 7px;
+  border: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+div, input {
+  position: relative;
+}
+#form {
+  background-color: $purple;
+  color: white;
+  @include main-pos;
+  > div:first-child {
+    padding-top: 60px;
+    text-align: center;
+    font-weight: lighter;
+    font-size: $small_text * 0.87;
+  }
+  #form_header {
+    padding-top: 10px;
+    text-align: center;
+    font-size: $small_text * 1.7;
+    font-weight: 300;
+    padding-bottom: 50px;
+  }
+
+  .row_with_inputs {
+    padding-top: 15px;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    input {
+      @include input_styling;
+      width: 48%;
+      height: 40px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  #large_input {
+    padding-top: 15px;
+    width: 60%;
+    margin: auto;
+    textarea {
+      @include input_styling;
+      @include main-pos;
+      height: 150px;
+      resize: none;
+      &:focus {
+        outline: none;
+      }
+
+    }
+  }
+
+  #bottom_text {
+    padding-top: 20px;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    font-size: $small_text * 0.87;
+    font-style: italic;
+  }
+
+  #button_send {
+    width: 60%;
+    margin: 20px auto 0;
+    background-color: #654879;
+    border-radius: 7px;
+    padding: 5px;
+    text-align: center;
+    font-size: $small_text;
+    border: 2px solid white;
+  }
+
+  #commenting_div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px 0 60px;
+
+    div:first-child {
+      border: 2px solid white {
+        radius: 50%;
+      }
+      size:60px;
+      margin-right: 20px;
+      svg:first-child {
+        size: 45px;
+        transform: rotateY(180deg) translate(-8px, 7px);
+      }
+    }
+    div:last-child {
+      margin-right: 20px;
+      font-size: 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}
