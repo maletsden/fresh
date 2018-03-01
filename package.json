@@ -4,7 +4,8 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cp views/index.html views/dist/index.html && webpack"
   },
   "repository": {
     "type": "git",
@@ -24,12 +25,15 @@
     "body-parser": "^1.18.2",
     "css-loader": "^0.28.9",
     "express": "^4.16.2",
+    "file-loader": "^1.1.6",
     "less": "^2.7.3",
     "node-sass": "^4.7.2",
     "path": "^0.12.7",
+    "postcss-short": "^4.1.0",
     "sass-loader": "^6.0.6",
     "uglify-loader": "^2.0.0",
     "uglifyjs": "^2.4.11",
+    "url-loader": "^0.6.2",
     "vue": "^2.5.13",
     "vue-loader": "^13.7.0",
     "vue-template-compiler": "^2.5.13",
@@ -40,14 +44,15 @@
     "autoprefixer": "^7.2.5",
     "bootstrap": "^4.0.0",
     "cssnano": "^3.10.0",
-    "file-loader": "^1.1.6",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.10",
     "scss-loader": "0.0.1",
     "tiny-slider": "^2.5.1",
+    "vue-agile": "^0.3.7",
     "vue-awesome": "^2.3.4",
     "vue-router": "^3.0.1",
+    "vue-slide": "^1.1.1",
     "vue-tiny-slider": "^0.1.9"
   }
 }

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
   limit: 1024 * 1024 * 10
 }));
 
-app.use('/', express.static('views/'));
+app.use('/', express.static('views/dist/'));
 
 
 
