@@ -1,94 +1,66 @@
 $purple: #352541;
-$pink: #d195c2;
-$small_text: 20px;
+@import '../../../../../smart-grid/smart-grid.scss';
 
-@mixin main-pos {
+.we_offer_row {
+  @include row-flex();
+  padding-top: 20px;
+  justify-content: space-between;
+  width: 85%;
   position: relative;
-  width: 100%;
-  z-index: 0;
+  margin: auto;
+  @include xs(justify-content, center);
 
+  &__block {
+    @include col();
+    @include size(4);
+    @include size-md(5);
+    @include size-xs(12);
+  }
+
+  &__image {
+    border: 2px solid $purple;
+    background-color: white;
+    size: 100% 100px;
+
+    &_text {
+      margin-top: 20px;
+      width: 100%;
+      position: relative;
+      background-color: $purple;
+      color: white;
+      padding: 7px 0;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
 }
 
 #we_offer {
   background: url("../images/we_offer.jpg");
   background-size: cover;
-  @include main-pos;
-  padding-bottom: 40px;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+  padding: 40px 0;
+}
 
-  > div:first-child {
-    z-index: -100;
-    top: 0;
-    position: absolute;
-    background-color: white;
-    opacity: 0.6;
-    size: 100%;
-  }
-  > div:nth-child(2) {
-    font-size: 14px;
+#to_know_more {
+  padding: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div {
     text-align: center;
-    padding-top: 60px;
-    position: relative;
-  }
-
-
-  > div:nth-child(3) {
-    margin-top: 20px;
+    border: 2px solid $purple;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 0.7% 3%;
     color: $purple;
-    text-align: center;
-    position: relative;
-    font-size: $small_text * 2;
-    padding-bottom: 40px;
-  }
-  .row {
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    position: relative;
-    margin: auto;
-    > div {
-      width: 25%;
-      position: relative;
+    font-size: 130%;
 
-
-      .image {
-        border: 2px solid $purple;
-        background-color: white;
-        size: 100% 100px;
-      }
-
-      .image_text {
-        margin-top: 20px;
-        width: 100%;
-        position: relative;
-        background-color: $purple;
-        color: white;
-        padding: 7px 0;
-        font-size: 16px;
-        text-align: center;
-      }
-    }
-  }
-
-  #to_know_more {
-    padding: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    div {
-      text-align: center;
-      border: 2px solid $purple {
-        radius: 10px;
-      }
-      box-sizing: border-box;
-      padding: 0.7% 3%;
-      color: $purple;
-      font-size: 130%;
-
-      &:hover {
-        background-color: #f1a5f1;
-      }
+    &:hover {
+      background-color: #f1a5f1;
     }
   }
 }
