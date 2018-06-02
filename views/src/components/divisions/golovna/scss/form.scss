@@ -1,12 +1,18 @@
 $purple: #352541;
 $pink: #d195c2;
 $small_text: 20px;
-
+@import '../../../../../smart-grid/smart-grid.scss';
+@mixin responsive($prop, $lg, $md:$lg, $sm:$lg, $xs:$lg) {
+  #{$prop}: $lg;
+  @include lg($prop, $lg);
+  @include md($prop, $md);
+  @include sm($prop, $sm);
+  @include xs($prop, $xs);
+}
 @mixin main-pos {
   width: 100%;
   z-index: 0;
 }
-
 @mixin input_styling {
   border-radius: 7px;
   border: 0;
@@ -14,98 +20,116 @@ $small_text: 20px;
   box-sizing: border-box;
 }
 
-div, input {
+div,
+input {
   position: relative;
 }
-#form {
-  background-color: $purple;
-  color: white;
-  @include main-pos;
-  > div:first-child {
-    padding-top: 60px;
-    text-align: center;
-    font-weight: lighter;
-    font-size: $small_text * 0.87;
-  }
-  #form_header {
-    padding-top: 10px;
-    text-align: center;
-    font-size: $small_text * 1.7;
-    font-weight: 300;
-    padding-bottom: 50px;
-  }
 
-  .row_with_inputs {
-    padding-top: 15px;
-    width: 60%;
+.basic_form {
+  &__row_inputs {
+    @include row-flex();
+    @include size(8);
+    @include size-sm(11);
+    @include size-xs(11.5);
     margin: auto;
-    display: flex;
     justify-content: space-between;
+
     input {
+      margin: 10px auto;
       @include input_styling;
-      width: 48%;
-      height: 40px;
+      @include size(6);
+      @include size-xs(12);
+
       &:focus {
         outline: none;
       }
     }
   }
-  #large_input {
+
+  &__large_textarea {
+    @include row-flex();
     padding-top: 15px;
-    width: 60%;
     margin: auto;
+    @include size(8);
+    @include size-sm(11);
+    @include size-xs(11.5);
+
     textarea {
       @include input_styling;
       @include main-pos;
       height: 150px;
       resize: none;
+      @include size(12);
+      margin: auto;
+
       &:focus {
         outline: none;
       }
-
     }
   }
 
-  #bottom_text {
-    padding-top: 20px;
-    width: 60%;
+  &__bottom_text,
+  &__button_send {
     margin: auto;
     text-align: center;
-    font-size: $small_text * 0.87;
+  }
+
+  &__bottom_text {
+    @include shift(2);
+    @include shift-sm(0.5);
+    @include shift-xs(0.25);
+    padding: 20px 15px 0;
+    @include responsive(font-size, 18px, 17px, 16px, 15px);
     font-style: italic;
   }
 
-  #button_send {
-    width: 60%;
+  &__button_send {
+    width: calc(100%/3*2 - 60px);
+    @include sm(width, calc(100%/12*11 - 60px));
+    @include xs(width, calc(100%/12*11.5 - 60px));
     margin: 20px auto 0;
     background-color: #654879;
     border-radius: 7px;
-    padding: 5px;
-    text-align: center;
-    font-size: $small_text;
+    padding: 5px 0;
+    @include responsive(font-size, 20px, 19px, 18px, 18px);
     border: 2px solid white;
   }
 
-  #commenting_div {
+  &__commenting_div {
     display: flex;
     justify-content: flex-end;
     padding: 40px 0 60px;
 
     div:first-child {
-      border: 2px solid white {
-        radius: 50%;
-      }
-      size:60px;
+      border: 2px solid white;
+      border-radius: 50%;
+      @include responsive(width, 60px, 55px, 50px, 45px);
+      @include responsive(height, 60px, 55px, 50px, 45px);
       margin-right: 20px;
+      position: relative;
       svg:first-child {
-        size: 45px;
-        transform: rotateY(180deg) translate(-8px, 7px);
+        position: relative;
+        @include responsive(width, 45px, 40px, 35px, 30px);
+        @include responsive(height, 45px, 40px, 35px, 30px);
+        top: 7.5px;
+        left: 8.5px;
+        transform: rotateY(180deg);
       }
     }
+
     div:last-child {
-      margin-right: 20px;
-      font-size: 20px;
+      @include responsive(font-size, 20px, 19px, 17px, 15px);
       -webkit-font-smoothing: antialiased;
+      @include shift-right(1);
+      @include shift-sm-right(0.5);
+      @include shift-xs-right(0.25);
+
     }
   }
+}
+
+#form {
+  background-color: $purple;
+  color: white;
+  @include main-pos;
 }
