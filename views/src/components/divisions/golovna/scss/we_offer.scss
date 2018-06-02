@@ -1,6 +1,13 @@
 $purple: #352541;
 @import '../../../../../smart-grid/smart-grid.scss';
 
+@mixin responsive($prop, $lg, $md:$lg, $sm:$md, $xs:$sm) {
+  #{$prop}: $lg;
+  @include lg($prop, $lg);
+  @include md($prop, $md);
+  @include sm($prop, $sm);
+  @include xs($prop, $xs);
+}
 .we_offer_row {
   @include row-flex();
   padding-top: 20px;
@@ -11,10 +18,10 @@ $purple: #352541;
   @include xs(justify-content, center);
 
   &__block {
-    @include col();
     @include size(4);
-    @include size-md(5);
+    @include size-md(5.7);
     @include size-xs(12);
+    margin: 30px 0;
   }
 
   &__image {
@@ -29,7 +36,7 @@ $purple: #352541;
       background-color: $purple;
       color: white;
       padding: 7px 0;
-      font-size: 16px;
+      @include responsive(font-size, 20px, 20px, 19px);
       text-align: center;
     }
   }
@@ -55,9 +62,10 @@ $purple: #352541;
     border: 2px solid $purple;
     border-radius: 10px;
     box-sizing: border-box;
-    padding: 0.7% 3%;
+    padding: 5px;
     color: $purple;
     font-size: 130%;
+    @include responsive(font-size, 30px, 28px, 25px, 22px);
 
     &:hover {
       background-color: #f1a5f1;
