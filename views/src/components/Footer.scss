@@ -1,0 +1,77 @@
+@import '../../smart-grid/smart-grid.scss';
+$purple: #352541;
+$pink: #d195c2;
+@mixin responsive($prop, $lg, $md:$lg, $sm:$md, $xs:$sm) {
+  #{$prop}: $lg;
+  @include lg($prop, $lg);
+  @include md($prop, $md);
+  @include sm($prop, $sm);
+  @include xs($prop, $xs);
+}
+
+#Footer {
+  position: relative;
+  width: 100%;
+  background: $purple;
+  display: flex;
+  justify-content: center;
+}
+
+#footer_row {
+  width: 90%;
+  @include sm(width, 95%);
+  @include xs(width, 90%);
+  position: relative;
+  @include row-flex();
+  justify-content: space-between;
+  padding: 6vh 0;
+}
+.footer_block {
+  @include size(4);
+  @include size-xs(11);
+  margin: auto;
+  color: white;
+  @include xs(padding-bottom, 6vh);
+
+  &-last {
+    @include xs(padding-bottom, 0);
+  }
+  &__topic{
+    color: white;
+    font-size: 2vw;
+    @include sm(font-size, 2.5vw);
+    @include xs(font-size, 5.5vw);
+    padding-bottom: 3vh;
+
+    &::after {
+      content: '';
+      margin-top: 5px;
+      display: block;
+      size: 80% 2px;
+      background: $pink;
+      @include xs(width, 100%);
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    * {
+      padding: 1vh;
+    }
+  }
+
+  &__icon {
+    size: 8%;
+  }
+
+  &__text{
+    font-size: 1.5vw;
+    @include md(font-size, 1.7vw);
+    @include sm(font-size, 2vw);
+    @include xs(font-size, 4.3vw);
+  }
+
+}
