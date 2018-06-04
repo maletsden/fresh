@@ -9,15 +9,19 @@ $small_text: 20px;
   @include sm($prop, $sm);
   @include xs($prop, $xs);
 }
-@mixin main-pos {
-  width: 100%;
-  z-index: 0;
-}
 @mixin input_styling {
   border-radius: 7px;
   border: 0;
   padding: 10px;
   box-sizing: border-box;
+}
+
+#form {
+  background-color: $purple;
+  color: white;
+  width: 100vw;
+  padding-bottom: 5vh;
+  position: relative;
 }
 
 div,
@@ -56,7 +60,7 @@ input {
 
     textarea {
       @include input_styling;
-      @include main-pos;
+      width: 100%;
       height: 150px;
       resize: none;
       @include size(12);
@@ -98,21 +102,23 @@ input {
   &__commenting_div {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    @include xs(align-items, flex-start);
     padding: 40px 0 60px;
 
     div:first-child {
       border: 2px solid white;
       border-radius: 50%;
-      @include responsive(width, 60px, 55px, 50px, 45px);
-      @include responsive(height, 60px, 55px, 50px, 45px);
+      @include responsive(size, 6vw, 8vw ,9vw , 10vw);
       margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
+
       svg:first-child {
         position: relative;
-        @include responsive(width, 45px, 40px, 35px, 30px);
-        @include responsive(height, 45px, 40px, 35px, 30px);
-        top: 7.5px;
-        left: 8.5px;
+        @include responsive(size, 4.7vw, 6vw ,7vw , 8vw);
         transform: rotateY(180deg);
       }
     }
@@ -120,16 +126,23 @@ input {
     div:last-child {
       @include responsive(font-size, 20px, 19px, 17px, 15px);
       -webkit-font-smoothing: antialiased;
+      max-width: 60vw;
       @include shift-right(1);
       @include shift-sm-right(0.5);
       @include shift-xs-right(0.25);
-
     }
   }
 }
-
-#form {
-  background-color: $purple;
-  color: white;
-  @include main-pos;
+/*.form_polygon, .form_polygon1 {
+  width: 100%;
+  height: 100px;
+  background: $purple;
 }
+.form_polygon{
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 35%);
+}
+
+.form_polygon1 {
+  clip-path: polygon(0% 63%, 100% 100%, 100% 0%, 0% 0%);
+}
+*/
