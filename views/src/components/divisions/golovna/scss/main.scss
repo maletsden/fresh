@@ -1,1 +1,64 @@
+@import '../../../../../smart-grid/smart-grid.scss';
+$purple: #352541;
+$pink: #d195c2;
 
+@mixin responsive($prop, $lg, $md:$lg, $sm:$md, $xs:$sm) {
+  #{$prop}: $lg;
+  @include lg($prop, $lg);
+  @include md($prop, $md);
+  @include sm($prop, $sm);
+  @include xs($prop, $xs);
+}
+
+.semi_trensparent_bg {
+  top: 0;
+  position: absolute;
+  background-color: rgba(white, 0.5);
+  size: 100%;
+
+}
+
+.section_topic {
+  &-white {
+    color: white;
+  }
+
+  &-purple {
+    color: $purple;
+  }
+
+  &__main_text, &__small_text {
+    text-align: center;
+    position: relative;
+    margin: auto;
+  }
+
+  &__main_text {
+    margin-top: 20px;
+    padding-bottom: 40px;
+    font-size: 4vw;
+    @include sm(font-size, 6vw);
+    @include xs(font-size, 8vw);
+    width: calc(65%);
+    @include xs(width, 90%);
+
+    &-bold{
+      font-weight: bold;
+    }
+
+    &-smaller {
+      font-size: 3vw;
+      @include xs(font-size, 8vw);
+    }
+  }
+
+  &__small_text {
+    padding-top: 60px;
+    font-size: 2vw;
+    @include xs(font-size, 4vw);
+    //@include responsive(font-size,15px, 14px, 14px, 14px);
+    width: 50%;
+    @include size-sm(9);
+    @include size-xs(11);
+  }
+}
