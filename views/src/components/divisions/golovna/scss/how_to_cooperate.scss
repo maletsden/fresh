@@ -1,3 +1,4 @@
+@import '../../../../../smart-grid/smart-grid.scss';
 $purple: #352541;
 $pink: #d195c2;
 $small_text: 20px;
@@ -7,352 +8,408 @@ $duration: 600ms;
   width: 100%;
   z-index: 0;
 }
+@mixin responsive($prop, $lg, $md:$lg, $sm:$md, $xs:$sm) {
+  #{$prop}: $lg;
+  @include lg($prop, $lg);
+  @include md($prop, $md);
+  @include sm($prop, $sm);
+  @include xs($prop, $xs);
+}
 
-div {
+#how_to_cooperate {
+  //background: url("../images/how_to_cooperate.jpg");
+  @include xs('background', white);
+  background-size: cover;
+  @include main-pos;
+  @include responsive(padding-bottom, 180px, 150px, 100px, 0);
+  color: #352541;
+  font-family: Arial;
   position: relative;
 }
 
-#main {
-  background: url("../images/how_to_cooperate.jpg");
-  background-size: cover;
-  @include main-pos;
-  color: #352541;
-  font-family: Arial;
+.circle {
+  @include responsive(size, 300px, 250px, 200px, 40vw);
+  margin: auto;
+  position: absolute;
+  @include xs(position, relative);
 
   > div:first-child {
-    // opacity
-    z-index: -100;
-    top: 0;
+    background: #893071;
+    size: 45%;
+    @include xs(size, 60%);
+    border-radius: 50%;
     position: absolute;
-    background-color: white;
-    opacity: 0.6;
-    size: 100%;
   }
 
-  > div:nth-child(2) {
-    padding-top: 60px;
-    text-align: center;
-    font-weight: lighter;
-    font-size: $small_text * 0.87;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
+  > img {
+    position: absolute;
   }
 
-  #header {
-    text-align: center;
-    padding: 20px 0 80px;
-    font-size: 30px;
+  > div:last-of-type {
+    background: $pink;
+    z-index: 5;
+    size: 20%;
+    @include xs(size, 25%);
+    position: absolute;
+    border: 2px solid #3f3f27;
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding: 2% 0 0 5.5%;
+    @include responsive(font-size, 40px, 33px, 25px, 7.5vw);
     font-weight: bold;
   }
 
-  #flower_block {
-    size: $central-circles;
-    margin: 50px auto;
-
-    position: relative;
-
-    #central_circles {
-      size: 100%;
-      position: absolute;
-      background: transparent;
-
-      border: 3px solid #a978b5 {
-        radius: 50%;
-      }
-      > div:not(:last-child) {
-        background-image: url("../images/half_circle.png");
-        size: $central-circles*0.35 $central-circles*0.35*64/114;
-        background-size: cover;
-        position: absolute;
-      }
-
-      > div:nth-child(1) {
-        left: 32.5%;
-        top: 12.85%;
-      }
-
-      > div:nth-child(2) {
-        transform: rotate(90deg);
-        right: 5%;
-        top: 40%;
-      }
-
-      > div:nth-child(3) {
-        left: 32.5%;
-        transform: rotateX(180deg);
-        bottom: 12.85%;
-      }
-
-      > div:nth-child(4) {
-        left: 5%;
-        top: 40.5%;
-        transform: rotate(-90deg);
-      }
-
-      > div:last-child {
-        position: absolute;
-        size: 35%;
-        left: 32.5%;
-        top: 32.5%;
-        background: $pink;
-        border-radius: 50%;
-      }
-    }
-    @mixin circle {
-      size: $central-circles;
-      margin: auto;
-      position: absolute;
-
-      > div:first-child {
-        background: #893071;
-        size: 45%;
-        border-radius: 50%;
-        position: absolute;
-      }
-
-      > img {
-        position: absolute;
-      }
-      > div:last-of-type {
-        background: $pink;
-        z-index: 5;
-        size: 20%;
-        position: absolute;
-        border: 2px solid #3f3f27 {
-          radius: 50%;
-        }
-        box-sizing: border-box;
-        padding: 2% 0% 0% 6%;
-        font-size: 240%;
-        font-weight: bold;
-      }
-      > p {
-        font-size: 130%;
-        position: absolute;
-        font-weight: 600;
-        line-height: 1;
-      }
-    }
-
-    #first_block {
-      @include circle;
-
-      > div:first-child {
-        right: -18%;
-        top: -15%;
-      }
-      > img {
-        content: url("../images/flower.png");
-        size: 50%;
-        right: -28%;
-        top: -27%;
-      }
-
-      > div:last-of-type {
-        right: 19%;
-        top: -17%;
-      }
-      > p {
-        width:60%;
-        right: -70%;
-        top: 19%;
-      }
-    }
-
-    #second_block {
-      @include circle;
-
-      > div:first-child {
-        right: -18%;
-        bottom: -15%;
-      }
-      > img:first-of-type {
-        content: url("../images/consultator_person.png");
-        size: 36% 41%;
-        right: -14.1%;
-        bottom: -15.1%;
-      }
-      > img:last-of-type {
-        content: url("../images/consultator_cloud.png");
-        size: 20%;
-        right: -26.1%;
-        bottom: 14.9%;
-      }
-
-      > div:last-of-type {
-        right: -4%;
-        bottom: 25%;
-      }
-      > p {
-        width:70%;
-        right: -90%;
-        bottom: -35%;
-      }
-    }
-
-    #third_block {
-      @include circle;
-
-      > div:first-child {
-        left: -18%;
-        bottom: -15%;
-      }
-      > img {
-        content: url("../images/keyboard.png");
-        size: 50%;
-        left: -18.3%;
-        bottom: -18.4%;
-      }
-      > div:last-of-type {
-        left: 12%;
-        bottom: 15%;
-      }
-      > p {
-        width:60%;
-        left: -75%;
-        bottom: -10%;
-      }
-    }
-
-    #forth_block {
-      @include circle;
-
-      > div:first-child {
-        left: -18%;
-        top: -15%;
-      }
-      > img {
-        content: url("../images/car.png");
-        width: 40%;
-        left: -23%;
-        top: -6%;
-      }
-      > div:last-of-type {
-        left: -17%;
-        top: 18%;
-      }
-      > p {
-        width:70%;
-        left: -95%;
-        top: 10%;
-      }
-    }
+  > p {
+    @include responsive(font-size, 24px, 21px, 17px, 5vw);
+    position: absolute;
+    font-weight: 600;
+    line-height: 1;
   }
-  #padding {
-    padding: $central-circles*0.2 0;
+}
+
+
+@keyframes show {
+  from {
+    opacity: 0;
   }
 
+  to {
+    opacity: 1;
+  }
+}
 
-  @keyframes show {
-    from {
+#flower_block {
+  @include responsive(width, 300px, 250px, 200px, auto);
+  @include responsive(height, 300px, 250px, 200px, auto);
+  margin: 50px auto;
+  position: relative;
+
+  &__central_circles {
+    @include xs(display, none);
+    size: 100%;
+    position: absolute;
+    background: transparent;
+    border: 3px solid #a978b5; //TODO:
+    border-radius: 50%;
+
+    > div:not(:last-child) {
+      background-image: url("../images/half_circle.png");
+      @include responsive(width, 105px, 87.5px, 70px);
+      @include responsive(height, 59px, 49px, 39px);
+      background-size: cover;
+      position: absolute;
+    }
+
+    > div:nth-child(1) {
+      left: 32.5%;
+      top: 12.85%;
+    }
+
+    > div:nth-child(2) {
+      transform: rotate(90deg);
+      right: 5%;
+      top: 40%;
+    }
+
+    > div:nth-child(3) {
+      left: 32.5%;
+      transform: rotateX(180deg);
+      bottom: 12.85%;
+    }
+
+    > div:nth-child(4) {
+      left: 5%;
+      top: 40.5%;
+      transform: rotate(-90deg);
+    }
+
+    > div:last-child {
+      position: absolute;
+      size: 35%;
+      left: 32.5%;
+      top: 32.5%;
+      background: $pink;
+      border-radius: 50%;
+    }
+  }
+
+  &__first_block {
+
+    > div:first-child {
+      right: -18%;
+      top: -15%;
+      @include xs(left, -50%);
+      @include xs(top, 0%);
+    }
+
+    > img {
+      content: url("../images/flower.png");
+      size: 50%;
+      @include xs(size, 65%);
+      right: -28%;
+      top: -27%;
+      @include xs(left, -39%);
+      @include xs(top, -12%);
+    }
+
+    > div:last-of-type {
+      right: 19%;
+      top: -17%;
+      @include xs(left, -60%);
+      @include xs(top, -2%);
+    }
+
+    > p {
+      width: 60%;
+      right: -70%;
+      top: 19%;
+      @include xs(left, 35%);
+      @include xs(top, -10%);
+      @include xs(width, 100%);
+    }
+  }
+
+  &__second_block {
+
+    > div:first-child {
+      right: -18%;
+      bottom: -15%;
+      @include xs(right, -40%);
+      @include xs(top, 0);
+    }
+
+    > img:first-of-type {
+      content: url("../images/consultator_person.png");
+      size: 36% 41%;
+      @include xs(size, 48.4% 54.7%);
+      right: -14.1%;
+      bottom: -15.1%;
+      @include xs(right, -34%);
+      @include xs(top, 5%);
+    }
+
+    > img:last-of-type {
+      content: url("../images/consultator_cloud.png");
+      size: 20%;
+      @include xs(size, 26.7%);
+      right: -26.1%;
+      bottom: 14.9%;
+      @include xs(right, -51%);
+      @include xs(top, -7%);
+    }
+
+    > div:last-of-type {
+      right: -4%;
+      bottom: 25%;
+      @include xs(right, -18%);
+      @include xs(top, -17%);
+    }
+
+    > p {
+      width: 70%;
+      right: -90%;
+      bottom: -35%;
+      @include xs(right, 40%);
+      @include xs(bottom, 50%);
+      @include xs(width, 120%);
+    }
+
+  }
+
+  &__third_block {
+
+    > div:first-child {
+      left: -18%;
+      bottom: -15%;
+      @include xs(left, -50%);
+      @include xs(top, 0%);
+    }
+
+    > img {
+      content: url("../images/keyboard.png");
+      size: 50%;
+      @include xs(size, 65%);
+      left: -18.3%;
+      bottom: -18.4%;
+      @include xs(left, -50%);
+      @include xs(top, -0.6%);
+    }
+
+    > div:last-of-type {
+      left: 12%;
+      bottom: 15%;
+      @include xs(left, -10%);
+      @include xs(top, -2%);
+    }
+
+    > p {
+      width: 60%;
+      left: -75%;
+      bottom: -10%;
+      @include xs(left, 35%);
+      @include xs(top, 10%);
+      @include xs(width, 130%);
+    }
+  }
+
+  &__forth_block {
+
+    > div:first-child {
+      left: -18%;
+      top : -15%;
+      @include xs(left, 80%);
+      @include xs(top, 0);
+    }
+
+    > img {
+      content: url("../images/car.png");
+      width: 40%;
+      @include xs(width, 53.4%);
+      left: -23%;
+      top: -6%;
+      @include xs(left, 70%);
+      @include xs(top, 5%);
+    }
+
+    > div:last-of-type {
+      left: -17%;
+      top: 18%;
+      @include xs(left, 85%);
+      @include xs(top, 40%);
+    }
+
+    > p {
+      width: 70%;
+      left: -95%;
+      @include sm(left, -80%);
+      top: 10%;
+      @include xs(left, -65%);
+      @include xs(bottom, 50%);
+      @include xs(width, 120%);
+    }
+  }
+}
+
+.flower_block_show {
+  visibility: visible;
+
+  #flower_block__central_circles,
+  #flower_block__central_circles > div {
+    animation-name: show;
+    animation-iteration-count: 1;
+    position: absolute;
+  }
+
+  #flower_block__central_circles {
+    animation-duration: $duration;
+
+    > div:not(:last-child) {
+      animation-duration: $duration *2;
+    }
+
+    > div:last-child {
+      animation-duration: $duration;
+    }
+  }
+  @mixin circle_show {
+    > * {
       opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .flower_block_show {
-    visibility: visible;
-    #central_circles,  #central_circles > div {
+      position: absolute;
       animation-name: show;
       animation-iteration-count: 1;
-      position: absolute;
-    }
-    #central_circles {
-      animation-duration: $duration;
-
-      >div:not(:last-child) {
-        animation-duration: $duration *2;
-      }
-
-      > div:last-child {
-        animation-duration: $duration;
-      }
-    }
-    @mixin circle_show {
-      > * {
-        opacity: 0;
-        position: absolute;
-        animation-name: show;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-        animation-duration: $duration *2;
-      }
-    }
-
-    #first_block {
-      @include circle_show;
-
-      > img {
-        animation-delay: $duration - 300;
-      }
-
-      > div:last-of-type, > p {
-        animation-delay: $duration - 150;
-      }
-    }
-
-    #second_block {
-      @include circle_show;
-
-      > div:first-child {
-        animation-delay: $duration * 0.5;
-      }
-      > img:first-of-type {
-        animation-delay: $duration * 0.5 + 100;
-      }
-      > img:last-of-type {
-        animation-delay: $duration * 1.5;
-      }
-
-      > div:last-of-type, > p {
-        animation-delay: $duration * 0.5 + 200;
-      }
-
-    }
-
-    #third_block {
-      @include circle_show;
-
-      > div:first-child {
-        animation-delay: $duration * 1;
-      }
-      > img {
-        animation-delay: $duration * 1 + 100;
-      }
-      > div:last-of-type, > p {
-        animation-delay: $duration * 1 + 200;
-      }
-
-    }
-
-    #forth_block {
-      @keyframes goCar {
-        0% {
-          left: -33%;
-        }
-        100% {
-          left: -23%;
-        }
-      }
-      @include circle_show;
-
-      > div:first-child {
-        animation-delay: $duration * 1.5;
-      }
-      > img {
-        animation-name: show, goCar;
-        animation-delay: $duration * 1.5 + 100;
-      }
-      > div:last-of-type, > p {
-        animation-delay: $duration * 1.5 + 200;
-      }
-
+      animation-fill-mode: forwards;
+      animation-duration: $duration *2;
     }
   }
-  #padding {
-    padding: $central-circles*0.2 0;
+
+  #flower_block__first_block {
+    @include circle_show;
+
+    > img {
+      animation-delay: $duration - 300;
+    }
+
+    > div:last-of-type,
+    > p {
+      animation-delay: $duration - 150;
+    }
   }
 
+  #flower_block__second_block {
+    @include circle_show;
+
+    > div:first-child {
+      animation-delay: $duration * 0.5;
+    }
+
+    > img:first-of-type {
+      animation-delay: $duration * 0.5 + 100;
+    }
+
+    > img:last-of-type {
+      animation-delay: $duration * 1.5;
+    }
+
+    > div:last-of-type,
+    > p {
+      animation-delay: $duration * 0.5 + 200;
+    }
+  }
+
+  #flower_block__third_block {
+    @include circle_show;
+
+    > div:first-child {
+      animation-delay: $duration * 1;
+    }
+
+    > img {
+      animation-delay: $duration * 1 + 100;
+    }
+
+    > div:last-of-type,
+    > p {
+      animation-delay: $duration * 1 + 200;
+    }
+  }
+
+  #flower_block__forth_block {
+    @keyframes goCar {
+      0% {
+        left: -33%;
+      }
+
+      100% {
+        left: -23%;
+
+      }
+    }
+    @keyframes goCar-xs {
+      0% {
+        left: 60%;
+      }
+
+      100% {
+        left: 70%;
+
+      }
+    }
+
+    @include circle_show;
+
+    > div:first-child {
+      animation-delay: $duration * 1.5;
+    }
+
+    > img {
+      animation-name: show, goCar;
+      @include xs(animation-name, #{'show, goCar-xs'});
+      animation-delay: $duration * 1.5 + 100;
+    }
+
+    > div:last-of-type,
+    > p {
+      animation-delay: $duration * 1.5 + 200;
+    }
+  }
 }
