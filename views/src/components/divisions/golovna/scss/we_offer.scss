@@ -1,6 +1,8 @@
 $purple: #352541;
 @import '../../../../../smart-grid/smart-grid.scss';
-
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Marck+Script');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
 @mixin responsive($prop, $lg, $md:$lg, $sm:$md, $xs:$sm) {
   #{$prop}: $lg;
   @include lg($prop, $lg);
@@ -8,67 +10,84 @@ $purple: #352541;
   @include sm($prop, $sm);
   @include xs($prop, $xs);
 }
-.we_offer_row {
-  @include row-flex();
-  padding-top: 20px;
-  justify-content: space-between;
-  width: 85%;
-  position: relative;
-  margin: auto;
-  @include xs(justify-content, center);
-
-  &__block {
-    @include size(4);
-    @include size-md(5.7);
-    @include size-xs(12);
-    margin: 30px 0;
-  }
-
-  &__image {
-    border: 2px solid $purple;
-    background-color: white;
-    size: 100% 100px;
-
-    &_text {
-      margin-top: 20px;
-      width: 100%;
-      position: relative;
-      background-color: $purple;
-      color: white;
-      padding: 7px 0;
-      @include responsive(font-size, 20px, 20px, 19px);
-      text-align: center;
-    }
-  }
-}
 
 #we_offer {
-  background: url("../images/we_offer.jpg");
-  background-size: cover;
+  display: none;
+  background: white;
   position: relative;
-  width: 100%;
+  size: 100vw 105vh;
   z-index: 0;
   padding: 40px 0;
+  margin-top: 60px;
 }
 
-#to_know_more {
-  padding: 70px;
-  display: flex;
-  align-items: center;
+.we_offer_row {
+  @include row-flex();
   justify-content: center;
 
-  div {
-    text-align: center;
-    border: 2px solid $purple;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 5px;
-    color: $purple;
-    font-size: 130%;
-    @include responsive(font-size, 30px, 28px, 25px, 22px);
+  &__img_bouquet,
+  &__img_wedding_bouquet,
+  &__block {
+    size: 500px 350px;
 
-    &:hover {
-      background-color: #f1a5f1;
+    /*&:hover {
+
+    }*/
+  }
+
+  &__img_bouquet {
+    background: url("../images/buquet3.jpg");
+    background-size: cover;
+  }
+
+  &__img_wedding_bouquet {
+    background: url("../images/wedding_bouquet2.jpg");
+    background-size: cover;
+  }
+
+  &__block {
+    background: #fbcfcf;
+
+    &_topic {
+      color: #333333;
+      font-family: 'Poppins', normal;
+      font-size: 30px;
+      margin: 25px 25px 10px 25px;
+      line-height: 1;
+    }
+    &_topic_decription{
+      font-size: 15px;
+      color: #65533f;
+      margin: 0 25px;
+    }
+
+    &_we_offer {
+      color: #333333;
+      margin: 10px 25px;
+    }
+    &_ul {
+      margin: 0;
+      padding: 0 25px;
+      li {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        color: #65533f;
+        //@include responsive(font-size, 30px, 28px, 25px, 22px);
+        &::before {
+          content: '';
+          display: block;
+          size: 5px;
+          border: {
+            radius: 20%;
+            top: 1.5px solid #65533f;
+            right: 1.5px solid #65533f;
+          }
+          transform: rotate(45deg);
+          background: transparent;
+          margin: 0 10px 0 5px;
+        }
+      }
     }
   }
 }
